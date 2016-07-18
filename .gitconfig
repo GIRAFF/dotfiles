@@ -1,0 +1,16 @@
+[gui]
+	recentrepo = /home/giraff/cpp/GIRAFF/bright_controll
+[user]
+	name = GIRAFF
+	email = k.yngvarr@gmail.com
+[push]
+	default = simple
+[alias]
+	co = checkout
+	ci = commit
+	randci = commit -m "$(curl http://whatthecommit.com/index.txt)"
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p

@@ -1,0 +1,103 @@
+
+[alarm]
+alarm_h=8
+alarm_m=25
+fading=15
+fri_h=7
+fri_m=1
+mon_h=7
+mon_m=1
+quietvol=60
+sat_h=7
+sat_m=1
+stop_on=FALSE
+sun_flags=2
+sun_h=7
+sun_m=1
+thu_h=7
+thu_m=1
+tue_h=7
+tue_m=1
+volume=72
+wed_h=7
+wed_m=1
+
+[alsa]
+mixer-element=Master
+
+[audacious]
+equalizer_bands=0,0,0,0,-1,0,0,-2,-4,3
+generic_title_format=${?artist:${artist} - }${title}
+repeat=TRUE
+resume_playback_on_startup=FALSE
+show_filepopup_for_tuple=FALSE
+
+[audgui]
+about_win=1742,295,582,371
+eq_preset_win=489,249,384,268
+equalizer_win=510,253,396,266
+filebrowser_win=1343,113,700,450
+filesel_path=/home/giraff/Music
+info_win=1778,279,740,340
+no_confirm_playlist_delete=TRUE
+playlist_export_win=263,73,950,675
+playlist_import_win=284,92,950,675
+playlist_manager_h=250
+playlist_manager_w=499
+playlist_manager_x=431
+playlist_manager_y=234
+playlist_path=file:///home/giraff/Music
+url_opener_win=0,185,400,117
+
+[crossfade]
+automatic=FALSE
+
+[gtkui]
+column_expand=1,0,0,0,0
+column_widths=10,261,173,10,237,175,10,100,39,75,275,275,275,10
+player_height=1005
+player_width=1280
+player_x=1366
+player_y=19
+
+[gtkui-layout]
+item0_name=Плагин LyricWiki
+item0_pos=-1,683,19,679,745
+item1_name=OpenGL Спектральный Анализатор
+item1_pos=-1,0,0,1362,764
+item2_name=Анализатор спектра
+item2_pos=-1,0,37,675,725
+item3_name=Размывающийся уровень
+item3_pos=-1,0,37,675,725
+item4_name=Поиск
+item4_pos=0,-1,-1,221,665
+item5_name=Списки воспроизведения
+item5_pos=-1,2006,37,632,981
+item6_name=Обложка альбома
+item6_pos=-1,2220,37,418,981
+item7_name=Модуль LyricWiki
+item7_pos=-1,1366,19,636,1001
+item_count=8
+
+[scrobbler]
+session_key=412749dfc7283ffb218270a4e4046156
+
+[search-tool]
+path=/home/giraff/Music
+
+[skins]
+equalizer_x=1366
+equalizer_y=502
+mainwin_font=Liberation Mono Bold 9
+mainwin_use_bitmapfont=FALSE
+player_x=1366
+player_y=18
+playlist_font=Liberation Mono Bold 8
+playlist_visible=TRUE
+playlist_x=1366
+playlist_y=134
+skin=/usr/share/audacious/Skins/Default
+twoway_scroll=TRUE
+
+[skins-layout]
+lyricwiki=2345,36,300,717
