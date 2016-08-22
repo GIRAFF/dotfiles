@@ -16,9 +16,6 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-# git completion
-source /usr/share/git/completion/git-prompt.sh
-
 #PS1='\[\e[1;34m\][\u@\h \W]\$\[\e[0m\] '
 #Black       0;30     Dark Gray     1;30
 #Blue        0;34     Light Blue    1;34
@@ -29,7 +26,7 @@ source /usr/share/git/completion/git-prompt.sh
 #Brown       0;33     Yellow        1;33
 #Light Gray  0;37     White         1;37
 
-PS1='\[\e[1;34m\][\[\e[1;33m\]\u@\h \[\e[1;32m\]\W$(__git_ps1)\[\e[1;34m\]]\[\e[1;32m\]\$\[\e[0m\] '
+PS1='\[\e[0;31m\][\[\e[1;31m\]\u@\h \[\e[0;37m\]\W\[\e[0;31m\]]\[\e[1;31m\]#\[\e[0m\] '
 
 #di = directory
 #fi = file
