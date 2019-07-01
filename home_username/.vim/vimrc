@@ -1,0 +1,60 @@
+" Igor's vimrc 3.0, smart-ass edition
+
+filetype plugin indent on
+
+" no vi in my vim
+if &compatible
+  set nocompatible
+endif
+
+" shouldn't it be on by default? 0_o
+syntax on
+" line numeration
+set nu
+set mouse=a
+set nowrap
+
+set history=1024
+set colorcolumn=80
+set foldmethod=indent
+" the best option for last line tab-completion
+set wildmode=list:full
+
+" for softtabs uncomment
+" set expandtab
+" set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+
+" ======== CUSTOM COMMANDS ========
+" write with sudo
+cmap w!! w !sudo tee > /dev/null %
+
+" ======== HOTKEYS ========
+" toggle last search highlighting
+nnoremap <silent> <c-_> :set hlsearch!<return>
+" close the buffer w/o closing the window
+nnoremap <c-c> :bp\|bd #<cr>
+" window navigation
+nnoremap <tab> <c-w>w
+nnoremap <s-tab> <c-w>W
+" save file
+nmap <F2> :w<cr>
+imap <F2> <esc>:w<cr>li
+" buffer navigation
+nnoremap <F6> :bp<cr>
+vnoremap <F6> <esc>:bp<cr>
+inoremap <F6> <esc>:bp<cr>i
+nnoremap <F7> :bn<cr>
+vnoremap <F7> <esc>:bn<cr>
+inoremap <F7> <esc>:bn<cr>i
+" fix syntax highlighting
+noremap <F9> <Esc>:syntax sync fromstart<CR>
+inoremap <F9> <C-o>:syntax sync fromstart<CR>
+" TODO install these plugins and uncomment mappings
+"nmap <F10> :TlistToggle<cr>
+"vmap <F10> <esc>:TlistToggle<cr>
+"imap <F10> <esc>:TlistToggle<cr>
+"nmap <F11> :NERDTreeToggle<cr>
+"vmap <F11> <esc>:NERDTreeToggle<cr>
+"imap <F11> <esc>:NERDTreeToggle<cr>
