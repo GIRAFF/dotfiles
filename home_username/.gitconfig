@@ -3,6 +3,8 @@
 	# email = troll@dunge.on
 [push]
 	default = simple
+[core]
+	pager = less -F -E
 [alias]
 	co = checkout
 	ci = commit

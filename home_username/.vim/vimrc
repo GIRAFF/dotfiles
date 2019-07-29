@@ -9,10 +9,12 @@ endif
 
 " shouldn't it be on by default? 0_o
 syntax on
+colorscheme jellybeans
 " line numeration
 set nu
 set mouse=a
 set nowrap
+set cursorline
 
 set history=1024
 set colorcolumn=80
@@ -21,10 +23,18 @@ set foldmethod=indent
 set wildmode=list:full
 
 " for softtabs uncomment
-" set expandtab
-" set softtabstop=4
+set expandtab
+set softtabstop=4
 set shiftwidth=4
 set tabstop=4
+
+" ======== PLUGINS ========
+
+call plug#begin()
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+call plug#end()
 
 " ======== CUSTOM COMMANDS ========
 " write with sudo
