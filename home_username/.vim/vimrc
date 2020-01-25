@@ -33,10 +33,22 @@ set tabstop=4
 " ======== PLUGINS ========
 
 call plug#begin()
+
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'adimit/prolog.vim'
+Plug 'jdonaldson/vaxe'
+Plug 'calviken/vim-gdscript3'
+
 call plug#end()
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_theme = 'jellybeans'
 
 " ======== CUSTOM COMMANDS ========
 " write with sudo
@@ -63,10 +75,9 @@ inoremap <F7> <esc>:bn<cr>i
 " fix syntax highlighting
 noremap <F9> <Esc>:syntax sync fromstart<CR>
 inoremap <F9> <C-o>:syntax sync fromstart<CR>
-" TODO install these plugins and uncomment mappings
-"nmap <F10> :TlistToggle<cr>
-"vmap <F10> <esc>:TlistToggle<cr>
-"imap <F10> <esc>:TlistToggle<cr>
+nmap <F10> :TlistToggle<cr>
+vmap <F10> <esc>:TlistToggle<cr>
+imap <F10> <esc>:TlistToggle<cr>
 "nmap <F11> :NERDTreeToggle<cr>
 "vmap <F11> <esc>:NERDTreeToggle<cr>
 "imap <F11> <esc>:NERDTreeToggle<cr>

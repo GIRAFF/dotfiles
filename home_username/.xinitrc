@@ -37,3 +37,5 @@ xset s off -dpms
 setxkbmap -layout "us,ru" -option "grp:alt_shift_toggle,grp_led:scroll"
 
 exec dbus-launch i3
+#export KDEWM=/usr/bin/i3
+#exec dbus-launch startplasma-x11

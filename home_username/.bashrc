@@ -35,9 +35,16 @@ __prompt_cmd() {
 	# different colors for super- and regular users
 	local HOST_COL=$(if [[ ${UID} -eq "0" ]] ; then echo "${DRED}" ; else echo "${DCYAN}" ; fi)
 	local PATH_COL=$(if [[ ${UID} -eq "0" ]] ; then echo "${RED}" ; else echo "${CYAN}" ; fi)
-	local GIT_PMT=$([[ $(type __git_ps1 2>/dev/null) ]] && __git_ps1 "${CYAN} (${RED}%s${CYAN})")
 
-	PS1="${CODE}${JOBS}${HOST_COL}\u@\h ${PATH_COL}\W${GIT_PMT} ${SUCC_COL}\\$ ${RESET}"
+	local GIT_DESC="$(git desc 2>/dev/null| head -n1 | tr -d '\n')"
+	if [[ "$GIT_DESC" != "" ]] ; then
+		local GIT_DESC=" $GIT_DESC"
+	fi
+	local GIT_PMT=$([[ $(type __git_ps1 2>/dev/null) ]] && __git_ps1 "${CYAN} (${DRED}%s${RED}${GIT_DESC}${CYAN})")
+	#local GIT_PMT=$([[ $(type __git_ps1 2>/dev/null) ]] && __git_ps1 "${CYAN} (${RED}%s${CYAN})")
+
+	#PS1="${CODE}${JOBS}${HOST_COL}\u@\h ${PATH_COL}\W${GIT_PMT} ${SUCC_COL}\\$ ${RESET}"
+	PS1="${CODE}${JOBS}${HOST_COL}\u@\h ${PATH_COL}\W${GIT_PMT}\n${SUCC_COL}\\$ ${RESET}"
 }
 PS2="\[\e[1;92m\]>\[\e[0m\] "
 
@@ -46,10 +53,17 @@ shopt -s checkwinsize
 
 export HISTCONTROL=ignoredups
 export HISTSIZE=1000
+# append to the history file, don't overwrite it
+shopt -s histappend
 # man, blue for directories was so lame!
 export LS_COLORS="di=1:fi=0:ln=1;34:or=1;31:mi=0:ex=1;35:*.rpm=90"
+export TERMINAL=lxterminal
+
+export PATH="$PATH:/home/igor/bin"
+export EDITOR=vim
 
 alias ls='ls --color=auto -pBc'
 alias ll='ls -l'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
+alias gdb='gdb --quiet'
