@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# This one breaks:
+#   if $1 is a negative number
+#   if $1 is not a number
+
+M=0
+S=0
+
+[[ $# -gt 0 ]] && M="$1"
+
+while $(true) ; do
+    clear
+    MM=$M
+    SS=$S
+    (( $(wc -c <<< $M) == 2 )) && MM="0$M"
+    (( $(wc -c <<< $S) == 2 )) && SS="0$S"
+    figlet "$MM:$SS"
+    sleep 1
+    if (( $S == 59 )) ; then
+        M=$(($M + 1))
+        S=0
+    else
+        S=$(( $S + 1 ))
+    fi
+done

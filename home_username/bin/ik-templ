@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# by Yngwarr
+#
+# Creates a new project from a template repo.
+# Makes sure you won't commit whole your project to template repos anymore.
+#
+# TODO read repo list from a config file
+# TODO add some auto-completion
+
+declare -A repos
+repos[js]='git@bitbucket.org:Yngwarr/js-template.git'
+repos[js-game]='git@bitbucket.org:Yngwarr/js-game-template.git'
+
+if [[ $# < 2 ]] ; then
+    echo 'Usage: ik-templ template-name project-name [repo-url]' >&2
+    exit 1
+fi
+
+TEMPL=$1
+DIR=$2
+REPO=$3
+
+if [[ -e "$DIR" ]] ; then
+    echo "id10t: file '$DIR' exists" >&2
+    exit 1
+fi
+
+# repos[$TEMPL] is empty -> there's no repo with given name
+if [[ -z "${repos[$TEMPL]}" ]] ; then
+    echo "id10t: don't know any repo named '$TEMPL'" >&2
+    exit 1
+fi
+
+INIT_MSG="initialized from a template"
+
+git clone "${repos[$TEMPL]}" "$DIR"
+cd "$DIR"
+
+# this is a barbaric way to remove git origin
+# a better way is to change a remote url for origin
+rm -rf .git
+git init
+git add .
+git ci -m "$INIT_MSG"
+
+if [[ -n "$REPO" ]] ; then
+    git remote add origin "$REPO"
+    git push -u origin master
+fi

@@ -1,0 +1,70 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+command=/usr/lib/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+#[clickme]
+#full_text=Click me!
+#command=echo button=$BLOCK_BUTTON x=$BLOCK_X y=$BLOCK_Y
+#min_width=button=1 x=1366 y=768
+#align=left
+
+#[msg]
+#markup=pango
+#command=/home/igor/opt/i3blocks/msg.sh
+#interval=5
+#color=#000000
+
+[player]
+command=/home/igor/opt/i3blocks/player.sh
+interval=1
+
+[vol]
+command=[[ $BLOCK_BUTTON == 1 ]] && echo '' > /tmp/vol_sh ; cat /tmp/vol_sh
+interval=once
+signal=1
+
+[iface]
+command=/home/igor/opt/i3blocks/iface.sh
+color=#00FF00
+interval=5
+
+#[language]
+#interval=2
+
+[bat]
+command=/home/igor/opt/i3blocks/bat.sh
+interval=2
+
+#[ram]
+#command=/home/igor/opt/i3blocks/ram.sh
+#interval=1
+
+[time]
+command=[[ $BLOCK_BUTTON == 1 ]] && gsimplecal ; date '+%H:%M %d/%m/%y'
+interval=5

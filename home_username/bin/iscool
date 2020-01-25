@@ -1,0 +1,15 @@
+#!/bin/bash
+
+SHKIT_DIR='/Users/user/tatooine/shkit'
+MESS=$([[ $# -ge 1 ]] && echo "$1" || pwd)
+
+#osascript -e "display notification \"$MESS\" with title \"Done!\""
+ik-alert "Done!" "$MESS"
+
+if [[ $? -ne 0 ]]; then
+    # non-zero exit code = error
+    sox -q "$SHKIT_DIR/assets/ok.wav" -d
+else
+    # zero exit code = ok
+    sox -q "$SHKIT_DIR/assets/error.wav" -d
+fi
