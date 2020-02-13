@@ -7,7 +7,17 @@
 
 if [[ -f /usr/share/git/completion/git-prompt.sh ]] ; then
 	source /usr/share/git/completion/git-prompt.sh
+elif [[ -f /etc/bash_completion.d/git-prompt ]] ; then
+	source /etc/bash_completion.d/git-prompt
 fi
+
+# enable bash completion in interactive shells
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
 
 # custom colored prompt
 PROMPT_COMMAND=__prompt_cmd
