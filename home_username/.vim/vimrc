@@ -39,11 +39,15 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'natebosch/vim-lsc'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
 
 Plug 'adimit/prolog.vim'
 Plug 'jdonaldson/vaxe'
 Plug 'calviken/vim-gdscript3'
-Plug 'natebosch/vim-lsc'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -62,6 +66,13 @@ let g:lsc_auto_map = v:true
 " ======== CUSTOM COMMANDS ========
 " write with sudo
 cmap w!! w !sudo tee > /dev/null %
+
+" ======== AUTOCOMMANDS ========
+" back to where we were the last time
+autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
 
 " ======== HOTKEYS ========
 " toggle last search highlighting
@@ -87,6 +98,6 @@ inoremap <F9> <C-o>:syntax sync fromstart<CR>
 nmap <F10> :TlistToggle<cr>
 vmap <F10> <esc>:TlistToggle<cr>
 imap <F10> <esc>:TlistToggle<cr>
-"nmap <F11> :NERDTreeToggle<cr>
-"vmap <F11> <esc>:NERDTreeToggle<cr>
-"imap <F11> <esc>:NERDTreeToggle<cr>
+nmap <F11> :NERDTreeToggle<cr>
+vmap <F11> <esc>:NERDTreeToggle<cr>
+imap <F11> <esc>:NERDTreeToggle<cr>
