@@ -11,6 +11,7 @@
 	randci = commit -m "$(curl http://whatthecommit.com/index.txt)"
 	st = status
 	br = branch
+	pop = stash pop
 	ed = branch --edit-description
 	desc = !git config branch.$(git symbolic-ref --short HEAD).description
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
