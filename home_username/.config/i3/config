@@ -227,10 +227,7 @@ focus_follows_mouse no
 
 exec parcellite &
 exec compton &
-#exec qjackctl &
-#exec cadence &
-exec --no-startup-id /usr/lib/kdeconnectd &
-exec --no-startup-id kdeconnect-indicator &
+#exec feh --bg-scale /home/igor/images/wallpaper/audi.jpg
 exec sh /home/igor/images/wallpaper/chwall.sh
 
 bar {
@@ -259,18 +256,19 @@ bar {
 }
 
 assign [class="^Audacious$"] 10
+for_window [class="Wine" instance="microsip.exe" title="MicroSIP"] floating enable, resize set width 240 px height 401 px
 
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
-for_window [class="plasmashell"] floating enable;
-for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
-for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
-for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px, no_focus 
+#for_window [title="Desktop — Plasma"] kill; floating enable; border none
+#for_window [class="plasmashell"] floating enable;
+#for_window [class="Plasma"] floating enable; border none
+#for_window [title="plasma-desktop"] floating enable; border none
+#for_window [title="win7"] floating enable; border none
+#for_window [class="krunner"] floating enable; border none
+#for_window [class="Kmix"] floating enable; border none
+#for_window [class="Klipper"] floating enable; border none
+#for_window [class="Plasmoidviewer"] floating enable; border none
+#for_window [class="(?i)*nextcloud*"] floating disable
+#for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px, no_focus 
 #no_focus [class="plasmashell" window_type="notification"]
 #no_focus [class="plasmashell" window_type="on_screen_display"]
 
