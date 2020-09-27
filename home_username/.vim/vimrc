@@ -23,6 +23,7 @@ set colorcolumn=80
 set foldmethod=indent
 " the best option for last line tab-completion
 set wildmode=list:full
+set hidden
 
 " for softtabs uncomment
 set expandtab
@@ -34,19 +35,21 @@ set tabstop=4
 
 call plug#begin()
 
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'natebosch/vim-lsc'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+Plug 'ap/vim-css-color'
+Plug 'sheerun/vim-polyglot'
 
+"Plug 'natebosch/vim-lsc'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'adimit/prolog.vim'
 Plug 'jdonaldson/vaxe'
 Plug 'calviken/vim-gdscript3'
+Plug 'alunny/pegjs-vim'
 Plug 'leafgarland/typescript-vim'
 
 call plug#end()
@@ -56,23 +59,40 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme = 'jellybeans'
 
 "let g:lsc_enable_autocomplete = v:false
-let g:lsc_auto_map = v:true
+"let g:lsc_auto_map = v:true
+"hi link lscDiagnosticError SpellBad
 
 "let g:lsc_server_commands = {
-"    \'javascript': 'node /home/igor/progs/js-ts-langserver/lib/language-server-stdio',
-"    \'typescript': 'node /home/igor/progs/js-ts-langserver/lib/language-server-stdio'
-"    \}
+    "\'javascript': 'node /home/igor/progs/js-ts-langserver/lib/language-server-stdio',
+    "\'typescript': 'node /home/igor/progs/js-ts-langserver/lib/language-server-stdio',
+    "\'gdscript3': 'localhost:6008'
+    "\}
 
 " ======== CUSTOM COMMANDS ========
 " write with sudo
 cmap w!! w !sudo tee > /dev/null %
 
-" ======== AUTOCOMMANDS ========
-" back to where we were the last time
-autocmd BufReadPost *
-      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-      \ |   exe "normal! g`\""
-      \ | endif
+" ======== COC.NVIM SPECIALS ========
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" GoTo code navigation.
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
 
 " ======== HOTKEYS ========
 " toggle last search highlighting
@@ -101,3 +121,9 @@ imap <F10> <esc>:TlistToggle<cr>
 nmap <F11> :NERDTreeToggle<cr>
 vmap <F11> <esc>:NERDTreeToggle<cr>
 imap <F11> <esc>:NERDTreeToggle<cr>
+
+" ======== SPECIAL CASES ========
+
+autocmd BufNewFile,BufRead ~/naboo/dasha/*.json set expandtab softtabstop=2 tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufRead ~/naboo/dasha/*.js set expandtab softtabstop=2 tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufRead ~/naboo/dasha/*.ts set expandtab softtabstop=2 tabstop=2 shiftwidth=2

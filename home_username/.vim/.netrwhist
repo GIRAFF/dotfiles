@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/igor/naboo/dasha/voice-processing-resources/prefetched/hcs'
+let g:netrw_dirhist_4='/home/igor/naboo/dasha/voice-processing-resources/prefetched/hcs/female-us'
+let g:netrw_dirhist_3='/home/igor/progs/gbdk/examples'
+let g:netrw_dirhist_2='/home/igor/naboo/dasha/dasha-studio/i18n/ru/out/commands/packProjectCommand/helpers'
+let g:netrw_dirhist_1='/home/igor/naboo/dasha/dasha-studio/i18n/en/out/commands/packProjectCommand/helpers'
+let g:netrw_dirhist_0='/home/igor/naboo/yngwarr/warehouse/sandbox/static/js'
+let g:netrw_dirhist_9='/home/igor/naboo/yngwarr/warehouse/sandbox/static/js/main.js'
+let g:netrw_dirhist_8='/home/igor/naboo/yngwarr/warehouse/sandbox/ts/3rd'
+let g:netrw_dirhist_7='/home/igor/naboo/yngwarr/warehouse/sandbox/ts'
+let g:netrw_dirhist_6='/home/igor/naboo/yngwarr/warehouse/sandbox/static'

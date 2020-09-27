@@ -1,0 +1,35 @@
+{
+  "languageserver": {
+    "godot": {
+      "host": "127.0.0.1",
+      "filetypes": ["gd", "gdscript3"],
+      "port": 6008
+    },
+    "haxe": {
+      "command": "node",
+      "args": ["/home/igor/progs/haxe-language-server/bin/server.js"],
+      "filetypes": ["haxe"],
+      "trace.server": "verbose",
+      "initializationOptions": {
+        "displayArguments": ["build.hxml"]
+      },
+      "settings": {
+        "haxe.executable": "haxe"
+      }
+    },
+    "dsl": {
+      "command": "/home/igor/.vscode-oss/extensions/dasha-ai.dashastudio-0.12.0/dsl-language-server/ls-linux-x64",
+      "args": ["langserver"],
+      "filetypes": ["dsl"],
+      "trace.server": "verbose"
+    },
+    "rust": {
+      "command": "rls",
+      "filetypes": ["rust"]
+    }
+  },
+  "diagnostic.messageTarget": "echo",
+  "diagnostic.enableSign": false,
+  "signature.target": "echo",
+  "suggest.autoTrigger": "always"
+}
