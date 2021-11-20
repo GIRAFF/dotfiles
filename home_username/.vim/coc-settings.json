@@ -26,6 +26,23 @@
     "rust": {
       "command": "rls",
       "filetypes": ["rust"]
+    },
+    "cpp": {
+      "command": "ccls",
+      "args": ["-std=c++17"],
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
     }
   },
   "diagnostic.messageTarget": "echo",
