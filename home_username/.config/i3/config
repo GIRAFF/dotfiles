@@ -226,7 +226,7 @@ bindsym Shift+XF86MonBrightnessUp exec /home/igor/opt/brightness.sh ++
 focus_follows_mouse no
 
 exec parcellite &
-exec compton &
+exec picom --config ~/.config/picom.conf &
 #exec feh --bg-scale /home/igor/images/wallpaper/audi.jpg
 exec sh /home/igor/images/wallpaper/chwall.sh
 
