@@ -6,7 +6,8 @@ if [[ -n "$1" ]] ; then
     FILENAME="$1"
 fi
 
+tree "$FILENAME"
 while inotifywait -r -e modify -e move -e create -e delete "$FILENAME" ; do
     clear
-    tree
+    tree "$FILENAME"
 done
