@@ -107,8 +107,8 @@ nnoremap <silent> <c-_> :set hlsearch!<return>
 " close the buffer w/o closing the window
 nnoremap <c-c> :bp\|bd #<cr>
 " window navigation
-nnoremap <tab> <c-w>w
-nnoremap <s-tab> <c-w>W
+"nnoremap <tab> <c-w>w
+"nnoremap <s-tab> <c-w>W
 " save file
 nmap <F2> :w<cr>
 imap <F2> <esc>:w<cr>li
