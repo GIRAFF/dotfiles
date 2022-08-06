@@ -18,7 +18,7 @@
       }
     },
     "dsl": {
-      "command": "/home/igor/.vscode-oss/extensions/dasha-ai.dashastudio-0.12.0/dsl-language-server/ls-linux-x64",
+      "command": "/home/igor/.vscode-oss/extensions/dasha-ai.dashastudio-1.1.0/dsl-language-server/ls-linux-x64",
       "args": ["langserver"],
       "filetypes": ["dsl"],
       "trace.server": "verbose"
@@ -26,23 +26,6 @@
     "rust": {
       "command": "rls",
       "filetypes": ["rust"]
-    },
-    "cpp": {
-      "command": "ccls",
-      "args": ["-std=c++17"],
-      "filetypes": ["c", "cpp", "objc", "objcpp"],
-      "rootPatterns": [
-        ".ccls",
-        "compile_commands.json",
-        ".vim/",
-        ".git/",
-        ".hg/"
-      ],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
-        }
-      }
     }
   },
   "diagnostic.messageTarget": "echo",

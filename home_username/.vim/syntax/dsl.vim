@@ -11,7 +11,7 @@ syn keyword dslConditional if else
 syn keyword dslKeyword context external start node do transitions set done wait
 syn keyword dslKeyword goto on digression priority output input import onexit
 syn keyword dslKeyword conditions enable disable save apply return exit library
-syn keyword dslKeyword preprocessor for while var block type
+syn keyword dslKeyword preprocessor for while var block type blockcall in
 syn keyword dslBoolean true false null
 "syn keyword dslNull null
 
