@@ -33,6 +33,9 @@ set softtabstop=4
 set shiftwidth=4
 set tabstop=4
 
+set cinkeys-=0#
+set indentkeys-=0#
+
 set completeopt=menu
 
 " ======== PLUGINS ========
@@ -53,10 +56,16 @@ Plug 'jrozner/vim-antlr'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'adimit/prolog.vim'
 "Plug 'jdonaldson/vaxe'
-Plug 'calviken/vim-gdscript3'
+Plug 'denilson-melo/vim-gdscript3'
 Plug 'alunny/pegjs-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'wilsaj/chuck.vim'
+
+if has('nvim')
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+endif
 
 call plug#end()
 
@@ -105,6 +114,14 @@ nmap <silent> <leader>gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 
 " ======== HOTKEYS ========
+
+if has('nvim')
+  nnoremap <leader>ff <cmd>Telescope find_files<cr>
+  nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+  nnoremap <leader>fb <cmd>Telescope buffers<cr>
+  nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+endif
+
 " toggle last search highlighting
 nnoremap <silent> <c-_> :set hlsearch!<return>
 " close the buffer w/o closing the window
