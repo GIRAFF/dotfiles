@@ -1,0 +1,6 @@
+#!/bin/bash
+
+FILE="$1"
+
+convert "$FILE" -scale 50% "_$FILE"
+mv "_$FILE" "$FILE"
