@@ -7,6 +7,8 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
 set guicursor=
 
 set nohlsearch
+
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 ]])
 
 -- uncomment for vertical monitor setup
