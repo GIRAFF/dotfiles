@@ -51,15 +51,19 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-css-color'
 Plug 'sheerun/vim-polyglot'
 Plug 'jrozner/vim-antlr'
+Plug 'tpope/vim-repeat'
 
-"Plug 'natebosch/vim-lsc'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'adimit/prolog.vim'
-"Plug 'jdonaldson/vaxe'
 Plug 'denilson-melo/vim-gdscript3'
 Plug 'alunny/pegjs-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'wilsaj/chuck.vim'
+
+Plug 'junegunn/fzf'
+Plug 'guns/vim-sexp', {'for': 'clojure'}
+Plug 'liquidz/vim-iced', {'for': 'clojure'}
+Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
 
 if has('nvim')
   Plug 'nvim-lua/plenary.nvim'
@@ -72,6 +76,7 @@ call plug#end()
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme = 'jellybeans'
+let g:iced_enable_default_key_mappings = v:true
 
 "let g:lsc_enable_autocomplete = v:false
 "let g:lsc_auto_map = v:true

@@ -17,12 +17,6 @@
         "haxe.executable": "haxe"
       }
     },
-    "dsl": {
-      "command": "/home/igor/.vscode-oss/extensions/dasha-ai.dashastudio-1.1.0/dsl-language-server/ls-linux-x64",
-      "args": ["langserver"],
-      "filetypes": ["dsl"],
-      "trace.server": "verbose"
-    },
     "rust": {
       "command": "rls",
       "filetypes": ["rust"]
