@@ -69,7 +69,7 @@ shopt -s histappend
 export LS_COLORS="di=1:fi=0:ln=1;34:or=1;31:mi=0:ex=1;35:*.rpm=90"
 export TERMINAL=lxterminal
 
-export PATH="$PATH:/home/igor/bin:/home/igor/.local/share/nvim/plugged/vim-iced/bi"
+export PATH="$PATH:/home/igor/bin:/home/igor/.local/share/nvim/plugged/vim-iced/bin"
 export EDITOR=vim
 
 alias ls='ls --color=auto -pBc'
