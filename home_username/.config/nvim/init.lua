@@ -1,24 +1,21 @@
-vim.cmd([[
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-source ~/.vim/vimrc
+for _, source in ipairs {
+  "astronvim.bootstrap",
+  "astronvim.options",
+  "astronvim.lazy",
+  "astronvim.autocmds",
+  "astronvim.mappings",
+} do
+  local status_ok, fault = pcall(require, source)
+  if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault) end
+end
 
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
-set guicursor=
+if astronvim.default_colorscheme then
+  if not pcall(vim.cmd.colorscheme, astronvim.default_colorscheme) then
+    require("astronvim.utils").notify(
+      "Error setting up colorscheme: " .. astronvim.default_colorscheme,
+      vim.log.levels.ERROR
+    )
+  end
+end
 
-set nohlsearch
-
-inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-]])
-
--- uncomment for vertical monitor setup
---require('telescope').setup {
-    --defaults = {
-        --layout_strategy = "vertical",
-        --sorting_strategy = "ascending",
-        --layout_config = {
-            --height = 0.95,
-            --prompt_position = 'top',
-        --},
-    --}
---}
+require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, false), true)

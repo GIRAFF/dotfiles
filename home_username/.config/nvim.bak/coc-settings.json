@@ -1,0 +1,42 @@
+{
+  "languageserver": {
+    "godot": {
+      "host": "127.0.0.1",
+      "filetypes": ["gd", "gdscript"],
+      "port": 6005
+    },
+    "haxe": {
+      "command": "node",
+      "args": ["/home/igor/progs/haxe-language-server/bin/server.js"],
+      "filetypes": ["haxe"],
+      "trace.server": "verbose",
+      "initializationOptions": {
+        "displayArguments": ["build.hxml"]
+      },
+      "settings": {
+        "haxe.executable": "haxe"
+      }
+    },
+    "rust": {
+      "command": "rls",
+      "filetypes": ["rust"]
+    },
+    "clojure": {
+      "command": "/home/igor/progs/clojure-lsp/clojure-lsp",
+      "filetypes": ["clojure"],
+      "rootPatterns": ["project.clj", "deps.edn"],
+      "additionalSchemes": ["jar", "zipfile"],
+      "trace.server": "verbose",
+      "diagnostic.showUnused": true,
+      "diagnostic.showDeprecated": true,
+      "diagnostic.highlightPriority": 1000000,
+      "initializationOptions": {
+        "ignore-classpath-directories": true
+      }
+    }
+  },
+  "diagnostic.messageTarget": "echo",
+  "diagnostic.enableSign": false,
+  "signature.target": "echo",
+  "suggest.autoTrigger": "always"
+}
