@@ -85,21 +85,16 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-workspace 1 output LVDS1
-workspace 3 output LVDS1
-workspace 5 output LVDS1
-workspace 7 output LVDS1
-workspace 9 output LVDS1
-workspace 2 output VGA1
-workspace 4 output VGA1
-workspace 6 output VGA1
-workspace 8 output VGA1
-workspace 10 output VGA1
-#workspace 2 output HDMI1
-#workspace 4 output HDMI1
-#workspace 6 output HDMI1
-#workspace 8 output HDMI1
-#workspace 10 output HDMI1
+workspace 1 output eDP
+workspace 2 output eDP
+workspace 3 output eDP
+workspace 4 output eDP
+workspace 5 output eDP
+workspace 6 output HDMI-A-0
+workspace 7 output HDMI-A-0
+workspace 8 output HDMI-A-0
+workspace 9 output HDMI-A-0
+workspace 10 output	HDMI-A-0
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -112,6 +107,9 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -196,18 +194,17 @@ bindsym $mod+Mod2+KP_Add mode "pointer"
 
 #custom
 bindsym $mod+t border toggle
-bindsym $mod+p exec pcmanfm
+bindsym $mod+p exec thunar
 bindsym $mod+Home exec sh /home/igor/images/wallpaper/chwall.sh
-bindsym $mod+F8 exec i3lock -i /home/igor/images/wallpaper/triop.png
+bindsym $mod+F8 exec i3lock -i /home/igor/Pictures/wallpaper/monkey.png
 bindsym $mod+Shift+F8 exec sh /home/igor/opt/lock.sh
-bindsym Print exec scrot -q 100 /home/igor/images/screenshots/%Y-%m-%d-%T-shot.png
+#bindsym Print exec scrot -q 100 /home/igor/images/screenshots/%Y-%m-%d-%T-shot.png
+bindsym Print exec /home/igor/bin/ik-prtscr
 bindsym $alt+Print exec scrot -s
-#bindsym XF86AudioLowerVolume exec /usr/bin/amixer set Master 5%-
-#bindsym XF86AudioRaiseVolume exec /usr/bin/amixer set Master 5%+
-bindsym XF86AudioLowerVolume exec /home/igor/opt/vol.sh --
-bindsym XF86AudioRaiseVolume exec /home/igor/opt/vol.sh ++
-bindsym Shift+XF86AudioLowerVolume exec /home/igor/opt/vol.sh -
-bindsym Shift+XF86AudioRaiseVolume exec /home/igor/opt/vol.sh +
+#bindsym XF86AudioLowerVolume exec /home/igor/opt/vol.sh --
+#bindsym XF86AudioRaiseVolume exec /home/igor/opt/vol.sh ++
+#bindsym Shift+XF86AudioLowerVolume exec /home/igor/opt/vol.sh -
+#bindsym Shift+XF86AudioRaiseVolume exec /home/igor/opt/vol.sh +
 bindsym XF86AudioPlay exec /usr/bin/audacious --play-pause
 bindsym XF86AudioStop exec /usr/bin/audacious --stop
 bindsym XF86AudioNext exec /usr/bin/audacious --fwd
@@ -218,17 +215,21 @@ bindsym XF86AudioPrev exec /usr/bin/audacious --rew
 #bindsym XF86AudioPrev exec qmmp --previous
 #bindsym XF86MonBrightnessDown exec /home/igor/progs/brt down
 #bindsym XF86MonBrightnessUp exec /home/igor/progs/brt up
-bindsym XF86MonBrightnessDown exec /home/igor/opt/brightness.sh -
-bindsym XF86MonBrightnessUp exec /home/igor/opt/brightness.sh +
-bindsym Shift+XF86MonBrightnessDown exec /home/igor/opt/brightness.sh --
-bindsym Shift+XF86MonBrightnessUp exec /home/igor/opt/brightness.sh ++
+#bindsym XF86MonBrightnessDown exec /home/igor/opt/brightness.sh -
+#bindsym XF86MonBrightnessUp exec /home/igor/opt/brightness.sh +
+#bindsym Shift+XF86MonBrightnessDown exec /home/igor/opt/brightness.sh --
+#bindsym Shift+XF86MonBrightnessUp exec /home/igor/opt/brightness.sh ++
 
 focus_follows_mouse no
 
 exec parcellite &
 exec picom --config ~/.config/picom.conf &
-#exec feh --bg-scale /home/igor/images/wallpaper/audi.jpg
-exec sh /home/igor/images/wallpaper/chwall.sh
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+exec nm-applet &
+exec blueman-applet &
+exec xfce4-power-manager &
+exec start-pulseaudio-x11 &
+exec xfce4-volumed-pulse &
 
 bar {
 	position top
@@ -257,6 +258,7 @@ bar {
 
 assign [class="^Audacious$"] 10
 for_window [class="Wine" instance="microsip.exe" title="MicroSIP"] floating enable, resize set width 240 px height 401 px
+for_window [class="firefox" title="Picture-in-Picture"] sticky enable, border none
 
 #for_window [title="Desktop — Plasma"] kill; floating enable; border none
 #for_window [class="plasmashell"] floating enable;
