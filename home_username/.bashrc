@@ -61,6 +61,11 @@ PS2="\[\e[1;92m\]>\[\e[0m\] "
 # careful resize for terminal emulators
 shopt -s checkwinsize
 
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CACHE_HOME=$HOME/.cache
+
 export HISTCONTROL=ignoredups
 export HISTSIZE=1000
 # append to the history file, don't overwrite it
