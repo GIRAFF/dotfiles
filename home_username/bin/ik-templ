@@ -11,6 +11,8 @@
 declare -A repos
 repos[js]='git@bitbucket.org:Yngwarr/js-template.git'
 repos[js-game]='git@bitbucket.org:Yngwarr/js-game-template.git'
+repos[godot]='git@github.com:Yngwarr/godot4-template.git'
+repos[clojure]='git@bitbucket.org:Yngwarr/clojure-template.git'
 
 if [[ $# < 2 ]] ; then
     echo 'Usage: ik-templ template-name project-name [repo-url]' >&2
